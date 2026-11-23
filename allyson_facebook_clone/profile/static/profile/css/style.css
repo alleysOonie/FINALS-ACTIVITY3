@@ -1,0 +1,710 @@
+
+/* ==============================
+   1. GENERAL STYLES
+============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #1877f2;
+    --bg: #f0f2f5;
+    --ink: #202124;
+    --muted: #65676b;
+    --line: #e4e6eb;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: Inter, Arial, sans-serif;
+    color: var(--ink);
+    font-size: 14px;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* ==============================
+   2. TOP NAVIGATION BAR
+============================== */
+
+.topbar {
+    height: 62px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4.5%;
+    box-shadow: 0 1px 3px #00000012;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.brand,
+.top-actions,
+.topnav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.facebook-mark {
+    background: var(--blue);
+    color: white;
+    font-size: 32px;
+    font-weight: 800;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 43px;
+}
+
+.search-pill {
+    background: #f0f2f5;
+    border-radius: 22px;
+    padding: 12px 18px;
+    color: #777;
+    width: 220px;
+}
+
+.topnav {
+    height: 100%;
+    gap: 65px;
+}
+
+.topnav a {
+    font-size: 25px;
+    text-decoration: none;
+    color: #777;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    width: 60px;
+}
+
+.topnav a.active {
+    color: var(--blue);
+    border-bottom: 3px solid var(--blue);
+}
+
+.top-actions button {
+    border: 0;
+    border-radius: 50%;
+    height: 39px;
+    width: 39px;
+    background: #e4e6eb;
+    font-size: 19px;
+}
+
+.top-actions img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* ==============================
+   3. PROFILE HERO AND COVER PHOTO
+============================== */
+
+.profile-hero {
+    background: white;
+    padding-bottom: 0;
+    box-shadow: 0 1px 2px #00000012;
+}
+
+.cover {
+    height: 310px;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 0 0 12px 12px;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+
+/* ==============================
+   4. PROFILE SUMMARY
+============================== */
+
+.profile-summary {
+    max-width: 940px;
+    margin: auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 0 10px 18px;
+    min-height: 150px;
+    border-bottom: 1px solid var(--line);
+}
+
+.avatar-wrap {
+    position: relative;
+    margin-top: -54px;
+}
+
+.avatar {
+    width: 168px;
+    height: 168px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: block;
+}
+
+.camera-button {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    border: 0;
+    background: #e4e6eb;
+    border-radius: 50%;
+    width: 39px;
+    height: 39px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.profile-heading {
+    padding-bottom: 10px;
+    flex: 1;
+}
+
+.profile-heading h1 {
+    font-size: 30px;
+    margin: 0 0 5px;
+    font-weight: 800;
+    letter-spacing: -.8px;
+    color: #000;
+}
+
+.bio {
+    margin: 0;
+    color: #000;
+}
+
+.friend-count {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 9px 0 0;
+}
+
+
+/* ==============================
+   5. PROFILE BUTTONS
+============================== */
+
+.profile-actions {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 12px;
+}
+
+.primary-button,
+.soft-button,
+.upload-button {
+    border: 0;
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: var(--blue);
+    color: #fff;
+}
+
+.soft-button,
+.upload-button {
+    background: #e4e6eb;
+    color: #252525;
+}
+
+.upload-form {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.upload-form input {
+    display: none;
+}
+
+.upload-button {
+    font-size: 12px;
+    padding: 9px 12px;
+}
+
+.file-name {
+    color: #8a8d91;
+    font-size: 11px;
+}
+
+
+/* ==============================
+   6. MESSAGES
+============================== */
+
+.messages {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.messages p {
+    margin: 4px 0;
+    color: #18864b;
+}
+
+.messages .error {
+    color: #c0392b;
+}
+
+
+/* ==============================
+   7. PROFILE TABS
+============================== */
+
+.profile-tabs {
+    max-width: 940px;
+    margin: auto;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 58px;
+}
+
+.profile-tabs a {
+    text-decoration: none;
+    color: #65676b;
+    font-weight: 700;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.profile-tabs a.selected {
+    color: var(--blue);
+    border-bottom: 3px solid var(--blue);
+}
+
+.profile-tabs button {
+    margin-left: auto;
+    border: 0;
+    border-radius: 7px;
+    padding: 9px 17px;
+    background: #e4e6eb;
+}
+
+
+/* ==============================
+   8. MAIN CONTENT LAYOUT
+============================== */
+
+.content-grid {
+    max-width: 940px;
+    margin: 18px auto;
+    display: grid;
+    grid-template-columns: minmax(280px, .85fr) minmax(0, 1.45fr);
+    gap: 16px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 2px #00000012;
+    margin-bottom: 16px;
+}
+
+.card h2,
+.posts-heading h2 {
+    font-size: 19px;
+    margin: 0 0 14px;
+}
+
+
+/* ==============================
+   9. INTRODUCTION CARD
+============================== */
+
+.intro-card .bio-line {
+    text-align: center;
+    font-weight: 600;
+    margin: 4px 0 18px;
+}
+
+.intro-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 15px 0;
+    color: var(--muted);
+}
+
+.intro-item span {
+    font-size: 19px;
+    width: 22px;
+    text-align: center;
+}
+
+.intro-item p {
+    margin: 2px 0;
+    line-height: 1.5;
+}
+
+.intro-item strong {
+    color: #303236;
+}
+
+.wide-soft {
+    width: 100%;
+    border: 0;
+    border-radius: 7px;
+    padding: 10px;
+    background: #e4e6eb;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+
+/* ==============================
+   10. PHOTO GRID
+============================== */
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.photo-grid img,
+.photo-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.photo-placeholder {
+    background: #e4efeb;
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+    color: #86a69b;
+}
+
+
+/* ==============================
+   11. POST COMPOSER
+============================== */
+
+.composer {
+    padding: 14px 16px 8px;
+}
+
+.composer-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--line);
+}
+
+.composer-row img,
+.post-author img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.composer-row button {
+    border: 0;
+    background: #f0f2f5;
+    border-radius: 22px;
+    padding: 12px 16px;
+    text-align: left;
+    color: #65676b;
+    flex: 1;
+    font-size: 14px;
+}
+
+.composer-tools {
+    display: flex;
+    justify-content: space-around;
+    padding: 13px 0 5px;
+    color: #65676b;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+
+/* ==============================
+   12. POSTS SECTION
+============================== */
+
+.posts-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0 10px;
+}
+
+.posts-heading h2 {
+    margin: 0;
+}
+
+.post-card {
+    padding: 16px 16px 8px;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-author div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.post-author strong {
+    font-size: 14px;
+}
+
+.post-author span {
+    font-size: 11px;
+    color: #65676b;
+}
+
+.post-author .more {
+    margin-left: auto;
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+    color: #65676b;
+}
+
+.post-content {
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 17px 0;
+    white-space: pre-line;
+}
+
+
+/* ==============================
+   13. POST VISUAL
+============================== */
+
+.post-visual {
+    height: 210px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+/* ==============================
+   14. POST REACTIONS AND BUTTONS
+============================== */
+
+.post-stats {
+    display: flex;
+    justify-content: space-between;
+    color: #65676b;
+    font-size: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.post-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0 2px;
+}
+
+.post-buttons button {
+    border: 0;
+    background: transparent;
+    color: #65676b;
+    font-weight: 700;
+    padding: 7px;
+    flex: 1;
+    cursor: pointer;
+}
+
+
+/* ==============================
+   15. HOVER EFFECTS
+============================== */
+
+.post-buttons button:hover,
+.wide-soft:hover,
+.soft-button:hover {
+    background: #dfe3e9;
+}
+
+
+/* ==============================
+   16. RESPONSIVE DESIGN
+   TABLET AND MOBILE
+============================== */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        padding: 0 12px;
+    }
+
+    .search-pill {
+        display: none;
+    }
+
+    .topnav {
+        gap: 10px;
+    }
+
+    .topnav a {
+        width: 36px;
+    }
+
+    .cover {
+        height: 210px;
+        border-radius: 0;
+    }
+
+    .profile-summary {
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 0 15px 15px;
+    }
+
+    .avatar {
+        width: 118px;
+        height: 118px;
+    }
+
+    .avatar-wrap {
+        margin-top: -35px;
+    }
+
+    .profile-heading h1 {
+        font-size: 22px;
+    }
+
+    .profile-heading {
+        padding: 0;
+        min-width: calc(100% - 145px);
+    }
+
+    .profile-actions {
+        width: 100%;
+        padding: 0;
+    }
+
+    .profile-actions button {
+        flex: 1;
+    }
+
+    .upload-form {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+    }
+
+    .profile-tabs {
+        gap: 12px;
+        overflow: auto;
+    }
+
+    .profile-tabs a {
+        white-space: nowrap;
+    }
+
+    .content-grid {
+        display: block;
+        margin: 12px;
+    }
+
+    .left-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        padding: 13px;
+    }
+
+    .intro-item {
+        font-size: 12px;
+    }
+
+    .composer-tools {
+        font-size: 10px;
+    }
+
+    .watermelon strong {
+        font-size: 20px;
+    }
+}
+
+
+/* ==============================
+   17. SMALL MOBILE SCREENS
+============================== */
+
+@media (max-width: 430px) {
+
+    .left-column {
+        display: block;
+    }
+
+    .topnav a:nth-child(2),
+    .topnav a:nth-child(3) {
+        display: none;
+    }
+
+    .profile-tabs {
+        gap: 5px;
+    }
+
+    .profile-tabs a {
+        font-size: 12px;
+        padding: 0 6px;
+    }
+
+}

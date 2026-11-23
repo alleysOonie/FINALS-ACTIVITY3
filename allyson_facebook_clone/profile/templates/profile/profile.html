@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ profile.name }} | Facebook</title>
+  <link rel="stylesheet" href="{% static 'profile/css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="facebook-mark">f</span><span class="search-pill">Search Facebook</span></div>
+    <nav class="topnav" aria-label="Main navigation"><a class="active" href="#">⌂</a><a href="#">▣</a><a href="#">♧</a></nav>
+    <div class="top-actions"><button aria-label="Menu">☷</button><button aria-label="Messenger">☏</button><button aria-label="Notifications">♧</button><img src="{{ profile.profile_picture.url }}" alt="Profile"></div>
+  </header>
+
+  <main>
+    <section class="profile-hero">
+      <div class="cover">
+      </div>
+      <div class="profile-summary">
+        <div class="avatar-wrap">
+          <img class="avatar" src="{{ profile.profile_picture.url }}" alt="Allyson Calderon profile picture">
+          <button class="camera-button" type="button" onclick="document.getElementById('picture-input').click()" aria-label="Change profile picture">📷</button>
+        </div>
+        <div class="profile-heading">
+          <h1>{{ profile.name }}</h1>
+          <p class="bio">{{ profile.bio }}</p>
+          <p class="friend-count">♡ &nbsp; 1.2K friends</p>
+        </div>
+        <div class="profile-actions">
+          <button class="primary-button" type="button">＋ Add to story</button>
+          <button class="soft-button" type="button">✎ Edit profile</button>
+        </div>
+      </div>
+      <form class="upload-form" action="{% url 'upload_profile_picture' %}" method="post" enctype="multipart/form-data" id="upload-form">
+        {% csrf_token %}
+        <input type="file" name="profile_picture" id="picture-input" accept="image/*" required>
+        <button class="upload-button" type="submit">Upload new profile picture</button>
+        <span class="file-name" id="file-name">JPG, PNG or WEBP · max 5 MB</span>
+      </form>
+      {% if messages %}<div class="messages">{% for message in messages %}<p class="{{ message.tags }}">{{ message }}</p>{% endfor %}</div>{% endif %}
+      <div class="profile-tabs"><a class="selected" href="#">Posts</a><a href="#">About</a><a href="#">Friends</a><a href="#">Photos</a><a href="#">Videos</a><button>•••</button></div>
+    </section>
+
+    <section class="content-grid">
+      <aside class="left-column">
+        <article class="card intro-card">
+          <h2>Intro</h2>
+          <p class="bio-line">{{ profile.bio }}</p>
+          <div class="intro-item"><span>⌂</span><p>Lives in <strong>Lucena City</strong></p></div>
+          <button class="wide-soft">Edit details</button>
+          <button class="wide-soft">Add hobbies</button>
+        </article>
+        <article class="card photos-card"><div class="card-title"><h2>Photos</h2><a href="#">See all photos</a></div><div class="photo-grid"><img src="{{ profile.profile_picture.url }}" alt="Profile photo"><div class="photo-placeholder">✿</div><div class="photo-placeholder">☁</div></div></article>
+      </aside>
+
+      <section class="feed">
+        <article class="card composer">
+          <div class="composer-row"><img src="{{ profile.profile_picture.url }}" alt=""><button>What's on your mind, {{ profile.name|cut:" Calderon" }}?</button></div>
+          <div class="composer-tools"><span>▣ &nbsp; Live video</span><span>▧ &nbsp; Photo/video</span><span>☺ &nbsp; Feeling/activity</span></div>
+        </article>
+        <div class="posts-heading"><h2>Posts</h2><button class="soft-button">☷ Filters</button></div>
+        {% for post in posts %}
+        <article class="card post-card">
+          <div class="post-author"><img src="{{ profile.profile_picture.url }}" alt=""><div><strong>{{ profile.name }}</strong><span>{{ post.created_at|date:"F j" }} · <span class="globe">◎</span></span></div><button class="more">•••</button></div>
+          <p class="post-content">{{ post.content }}</p>
+          {% if forloop.first %}{% endif %}
+          <div class="post-stats"><span>👍 ❤️</span><span>128 comments · 24 shares</span></div>
+          <div class="post-buttons"><button>♡ Like</button><button>▢ Comment</button><button>↗ Share</button></div>
+        </article>
+        {% endfor %}
+      </section>
+    </section>
+  </main>
+  <script src="{% static 'profile/js/main.js' %}"></script>
+</body>
+</html>
